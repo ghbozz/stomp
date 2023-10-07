@@ -113,4 +113,10 @@ module Stomp
       steps_data.each { |k, v| send("#{k}=", v) if send(k).nil? }
     end
   end
+
+  module Controller
+    def build_record_for(klass)
+      klass.new(serialized_steps_data: params[:serialized_steps_data])
+    end
+  end
 end
