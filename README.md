@@ -11,8 +11,8 @@ gem 'stomp', git: 'https://github.com/ghbozz/stomp'
 
 then run
 
-```ruby
-bundle install
+```bash
+$ bundle install
 ```
 
 ## Usage
