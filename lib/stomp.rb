@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require_relative "stomp/version"
-require_relative "stomp/initialization"
-require_relative "stomp/steps_management"
-require_relative "stomp/validations"
-require_relative "stomp/serialization"
+require_relative "stomp/model/initialization"
+require_relative "stomp/model/steps_management"
+require_relative "stomp/model/validations"
+require_relative "stomp/model/serialization"
 require 'active_support/concern'
 
 module Stomp
