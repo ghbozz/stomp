@@ -17,6 +17,43 @@ $ bundle install
 
 ## Usage
 
+### Including Stomp::Model
+To start using the Stomp gem functionalities in your ActiveRecord model, include the `Stomp::Model` module:
+```ruby
+class Post < ApplicationRecord
+  include Stomp::Model
+  # ... rest of the code
+end
+```
+This includes a set of methods and functionalities specific to multi-step form management into your Post model.
+
+### Defining Steps
+Use the define_steps method to specify the steps involved and the attributes required for each step.
+```ruby
+define_steps step_1: [:title, :url, :author], 
+             step_2: [:description], 
+             step_3: [:content]
+```
+Here, we define three steps (step_1, step_2, step_3) and associate them with their respective attributes.
+
+### Step Validations
+The define_step_validations method allows you to set up validations specific to each step.
+```ruby
+define_step_validations step_1: { 
+  title: { presence: true, length: { minimum: 5 } }, 
+  author: { presence: true }
+}
+```
+For more advanced validations, you can even specify a separate Validator class:
+```ruby
+define_step_validations step_2: PostDescriptionValidator
+```
+This will use the PostDescriptionValidator class to validate the description attribute during step_2
+
+
+### Defining Steps
+Use the define_steps method to specify the steps involved and the attributes required for each step.
+
 TODO: Write usage instructions here
 
 ## Development
