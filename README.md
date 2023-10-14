@@ -9,6 +9,12 @@ Stomp is a Ruby gem designed to simplify and streamline the process of creating 
 gem 'stomp', git: 'https://github.com/ghbozz/stomp'
 ```
 
+then run
+
+```ruby
+bundle install
+```
+
 ## Usage
 
 TODO: Write usage instructions here
