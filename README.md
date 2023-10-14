@@ -22,10 +22,22 @@ To start using the Stomp gem functionalities in your ActiveRecord model, include
 ```ruby
 class Post < ApplicationRecord
   include Stomp::Model
+
+  stomp! validate: :each_step
   # ... rest of the code
 end
 ```
 This includes a set of methods and functionalities specific to multi-step form management into your Post model.
+
+### Model Configuration with `stomp!`
+
+The `stomp! validate: :each_step` line in your model configures the validation behavior of the Stomp gem. 
+
+- `validate: :each_step`: With this setting, validations for the current step are triggered each time the user navigates between steps. If the validations fail, the user cannot proceed to the next step until the errors are resolved.
+
+- `validate: :once`: In contrast, using `validate: :once` will only run validations a single time at the end when the user attempts to commit the record. This allows the user to navigate through the form without being halted by validations, but it also means that all validations must pass at the end before the record can be saved.
+
+The choice between `:each_step` and `:once` depends on the user experience you wish to provide. Using `:each_step` ensures data integrity at each stage but can make the form feel more restrictive. On the other hand, `:once` allows for greater freedom during form navigation but consolidates the validation process at the end.
 
 ### Defining Steps
 Use the define_steps method to specify the steps involved and the attributes required for each step.
