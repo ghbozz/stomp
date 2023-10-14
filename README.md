@@ -2,6 +2,24 @@
 
 Stomp is a Ruby gem designed to simplify and streamline the process of creating multi-step forms and workflows in Rails applications. It offers a clean and intuitive API for defining steps, handling validations, and managing state throughout the flow.
 
+## Table of Contents
+- [Installation](#installation)
+- [Model](#model)
+  - [Including Stomp::Model](#including-stompmodel)
+  - [Model Configuration with `stomp!`](#model-configuration-with-stomp)
+  - [Defining Steps](#defining-steps)
+  - [Step Validations](#step-validations)
+- [Controller](#controller)
+  - [Including Stomp::Controller](#including-stompcontroller)
+  - [Data Serialization Between Actions](#data-serialization-between-actions)
+  - [Helper Methods for Data Serialization](#helper-methods-for-data-serialization)
+- [View](#view)
+  - [View Configuration for Serialized Data](#view-configuration-for-serialized-data)
+  - [Conditionally Rendering Input Fields](#conditionally-rendering-input-fields)
+  - [Navigating Between Steps](#navigating-between-steps)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
