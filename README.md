@@ -185,7 +185,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/stomp.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ghbozz/stomp.
 
 ## License
 
