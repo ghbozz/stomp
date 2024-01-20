@@ -11,6 +11,7 @@ module Stomp
   module Model
     extend ActiveSupport::Concern
 
+    include ClassMethods
     include Initialization
     include StepsManagement
     include Validations
@@ -20,7 +21,7 @@ module Stomp
     attr_accessor *STOMP_ATTRIBUTES
 
     included do
-      extend ClassMethods
+      # extend ClassMethods
       class_attribute :steps, :steps_attributes, :steps_data, :stomp_validation
 
       after_initialize :set_default_values
