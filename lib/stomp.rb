@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "stomp/version"
+require_relative "stomp/model/class_methods"
 require_relative "stomp/model/initialization"
 require_relative "stomp/model/steps_management"
 require_relative "stomp/model/validations"
