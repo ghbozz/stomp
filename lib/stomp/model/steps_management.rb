@@ -20,6 +20,7 @@ module Stomp
       end
 
       def set_direction!(step)
+        return self.direction = :stay if step.to_sym == current_step
         return self.direction = :forward if step.to_sym == :next
         return self.direction = :backward if step.to_sym == :previous
         
