@@ -18,7 +18,7 @@ module Stomp
     include Validations
     include Serialization
 
-    STOMP_ATTRIBUTES = [:current_step, :previous_step, :completed_steps, :completed, :steps_data, :create_attempt, :serialized_steps_data]
+    STOMP_ATTRIBUTES = [:current_step, :previous_step, :completed_steps, :completed, :steps_data, :create_attempt, :direction, :serialized_steps_data]
     attr_accessor *STOMP_ATTRIBUTES
 
     included do

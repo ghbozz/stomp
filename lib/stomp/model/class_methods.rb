@@ -8,7 +8,7 @@ module Stomp
         define_method :serialized_steps_data do
           attributes
             .select { |k, _| steps_attributes.include?(k.to_sym) }
-            .merge(current_step: current_step, previous_step: previous_step, create_attempt: create_attempt, completed_steps: completed_steps)
+            .merge(current_step: current_step, previous_step: previous_step, create_attempt: create_attempt, completed_steps: completed_steps, direction: direction)
             .to_json
         end
 

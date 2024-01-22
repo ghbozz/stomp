@@ -3,17 +3,31 @@ module Stomp
     module StepsManagement
       def step!(step)
         set_create_attempt!(step)
+        set_direction!(step) if [:next, :previous].include?(step.to_sym)
+        
         return next_step! if step.to_sym == :next
         return previous_step! if step.to_sym == :previous
         return false unless steps.include?(step.to_sym)
-  
+        
         update_completed_steps
-  
+        
         if self.stomp_validation == :each_step
           return all_steps_valid?(after: step) unless completed_steps.include?(step.to_sym)
         end
-  
+        
+        set_direction!(step) unless [:next, :previous].include?(step.to_sym)
         self.current_step = step
+      end
+
+      def set_direction!(step)
+        return self.direction = :forward if step.to_sym == :next
+        return self.direction = :backward if step.to_sym == :previous
+        
+        if step_index_for(step.to_sym) > current_step_index
+          self.direction = :forward
+        else
+          self.direction = :backward
+        end
       end
   
       def next_step!
@@ -68,6 +82,14 @@ module Stomp
   
       def last_step?
         current_step == steps.last
+      end
+
+      def current_step_index
+        steps.index(current_step)
+      end
+
+      def step_index_for(step)
+        steps.index(step)
       end
 
       private
