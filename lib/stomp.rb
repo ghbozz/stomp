@@ -25,7 +25,7 @@ module Stomp
       # extend ClassMethods
       class_attribute :steps, :steps_attributes, :steps_data, :stomp_validation
 
-      after_initialize :set_default_values
+      # after_initialize :set_default_values
     end
 
     def current_step=(step)

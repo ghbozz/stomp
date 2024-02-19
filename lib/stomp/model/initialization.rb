@@ -5,6 +5,7 @@ module Stomp
         deserialize_and_set_data(args.first&.fetch(:serialized_steps_data, nil))
         super
         update_attributes_from_step_data
+        set_default_values
       end
 
       private
